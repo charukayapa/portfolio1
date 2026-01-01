@@ -89,9 +89,11 @@
                 <a href="#education" class="text-sm font-medium hover:text-teal-400 transition-colors uppercase tracking-widest">Education</a>
                 <a href="#projects" class="text-sm font-medium hover:text-teal-400 transition-colors uppercase tracking-widest">Projects</a>
                 <a href="#contact" class="text-sm font-medium hover:text-teal-400 transition-colors uppercase tracking-widest">Contact</a>
-                <button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-500 text-slate-900 font-bold text-sm hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20">
+                
+                <!-- Fixed Download Button -->
+                <a href="./cv.pdf" download="Charuka_Pathum_CV.pdf" type="application/pdf" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-500 text-slate-900 font-bold text-sm hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20">
                     <i data-lucide="download" class="w-4 h-4"></i> DOWNLOAD CV
-                </button>
+                </a>
             </div>
 
             <button class="md:hidden text-white" id="mobile-menu-btn">
@@ -106,9 +108,11 @@
         <a href="#education" class="mobile-link text-2xl font-bold text-white">Education</a>
         <a href="#projects" class="mobile-link text-2xl font-bold text-white">Projects</a>
         <a href="#contact" class="mobile-link text-2xl font-bold text-white">Contact</a>
-        <button class="mt-4 flex items-center gap-2 px-8 py-4 rounded-full bg-teal-500 text-slate-900 font-bold">
+        
+        <!-- Fixed Mobile Download Button -->
+        <a href="./cv.pdf" download="Charuka_Pathum_CV.pdf" type="application/pdf" class="mt-4 flex items-center gap-2 px-8 py-4 rounded-full bg-teal-500 text-slate-900 font-bold">
             <i data-lucide="download"></i> CV.PDF
-        </button>
+        </a>
     </div>
 
     <!-- Hero Section -->
@@ -133,7 +137,6 @@
                     <a href="#contact" class="px-8 py-4 rounded-xl bg-teal-500 text-slate-900 font-bold shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center gap-2 btn-pulse">
                         CONTACT ME
                     </a>
-                    <!-- Fixed Button: Now points to #projects -->
                     <a href="#projects" class="px-8 py-4 rounded-xl bg-slate-800 text-white font-bold border border-slate-700 hover:bg-slate-700 transition-colors flex items-center justify-center">
                         VIEW WORK
                     </a>
@@ -147,23 +150,25 @@
                     <div class="absolute inset-4 rounded-full border-2 border-dashed border-blue-500/20 animate-[spin_30s_linear_infinite_reverse]"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-80 h-80 rounded-[40px] bg-slate-800 border border-slate-700 shadow-2xl overflow-hidden flex items-center justify-center group relative">
-                            <!-- Image container -->
-                            <img 
-                                id="profile-img"
-                                src="profile.jpg" 
-                                alt="Y.M. Charuka Pathum" 
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                onerror="this.style.display='none'; document.getElementById('profile-placeholder').classList.remove('hidden');"
-                            >
-                            
-                            <!-- Fallback/Placeholder if image is missing -->
-                            <div id="profile-placeholder" class="hidden w-full h-full bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center p-8 text-center group-hover:scale-110 transition-transform duration-700">
+                            <!-- Placeholder -->
+                            <div id="profile-placeholder" class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center p-8 text-center group-hover:scale-110 transition-transform duration-700 z-10">
                                 <div class="w-20 h-20 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 mb-4">
                                     <i data-lucide="user" class="w-10 h-10 animate-pulse"></i>
                                 </div>
                                 <p class="text-xs text-teal-500/60 uppercase tracking-widest font-mono">Profile Visualization</p>
-                                <p class="mt-2 text-sm text-slate-500 italic">Add 'profile.jpg' to your folder to see your headshot</p>
+                                <p class="mt-2 text-sm text-slate-500 italic text-balance">Add 'profile.jpg' to the folder</p>
                             </div>
+                            
+                            <!-- Image (Auto-detects) -->
+                            <img 
+                                id="profile-img"
+                                src="profile.jpg" 
+                                alt="Y.M. Charuka Pathum" 
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 z-20"
+                                style="display: none;"
+                                onload="this.style.display='block'; document.getElementById('profile-placeholder').style.display='none';"
+                                onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='flex';"
+                            >
                         </div>
                     </div>
                 </div>
@@ -235,7 +240,6 @@
             </div>
 
             <div class="relative border-l-2 border-slate-800 ml-4 space-y-12 pb-8">
-                <!-- Entry 1 -->
                 <div class="relative pl-12 reveal">
                     <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-teal-500 border-4 border-[#0a0a0c] z-10"></div>
                     <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/30 transition-all group">
@@ -245,7 +249,6 @@
                         <p class="text-slate-500 italic">Specializing in Software Engineering & Data Systems</p>
                     </div>
                 </div>
-                <!-- Entry 2 -->
                 <div class="relative pl-12 reveal">
                     <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-teal-500 border-4 border-[#0a0a0c] z-10"></div>
                     <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/30 transition-all group">
@@ -270,7 +273,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="reveal group relative p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i data-lucide="activity" class="w-20 h-20"></i>
@@ -287,7 +289,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="reveal group relative p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i data-lucide="database" class="w-20 h-20"></i>
@@ -304,7 +305,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="reveal group relative p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <i data-lucide="cpu" class="w-20 h-20"></i>
@@ -411,7 +411,6 @@
             let scrolled = (winScroll / height) * 100;
             document.getElementById("progress-bar").style.width = scrolled + "%";
             
-            // Navbar Shadow on Scroll
             const nav = document.querySelector('nav');
             if (winScroll > 20) {
                 nav.classList.add('shadow-2xl', 'border-white/10');
@@ -420,7 +419,6 @@
             }
         };
 
-        // Reveal on Scroll Logic
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -432,7 +430,6 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Typewriter Effect
         const typewriterElement = document.getElementById('typewriter');
         const phrases = ["Bridging IT and Bio-Medical Tech", "Crafting Digital Health Solutions", "Innovative Tech Architect"];
         let phraseIdx = 0;
@@ -455,7 +452,7 @@
 
             if (!isDeleting && charIdx === currentPhrase.length) {
                 isDeleting = true;
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000;
             } else if (isDeleting && charIdx === 0) {
                 isDeleting = false;
                 phraseIdx = (phraseIdx + 1) % phrases.length;
@@ -465,7 +462,6 @@
             setTimeout(type, typeSpeed);
         }
 
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -484,7 +480,6 @@
             lucide.createIcons();
         });
 
-        // Close menu on link click
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
@@ -493,10 +488,8 @@
             });
         });
 
-        // Start animation
         window.onload = () => {
             type();
-            // Initial reveal check
             revealElements.forEach(el => {
                 if(el.getBoundingClientRect().top < window.innerHeight) {
                     el.classList.add('active');
